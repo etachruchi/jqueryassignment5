@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>jqueryassignment5</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="ab">
+        <h1>Assignment5</h1>
+        <form class="" action="index.html">
+            <div>
+                <p>
+                    <input type="text">
+                    <input type="file" id="image">
+                    <select class="another" ;>
+                       <option value="primary" selected>Primary</option>
+                       <option value="">Secondary</option>
+                    </select>
+                </p>
+            </div>
+            <div id="add"></div>
+        </form>
+        <button type="button" id="button" name="button">Add</button>
+
+    </div>
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("button").click(function() {
+                $("#add").append(function() {
+                    add();
+                });
+            });
+            $(document).on('click', '.button2', function() {
+                console.log("hello");
+                $(this).parent().remove();
+            });
+
+            var create = 1;
+
+            function add() {
+
+                var add = " <p id = '" + create + "' > " +
+                    "<input type='text'>" +
+                    "<input type='file' id='image'>" +
+                    "<select >" +
+                    "<option value=''>Select</option>" +
+                    "<option value='primary'>Primary</option>" +
+                    "<option value='secondary' selected>Secondary</option>" +
+                    "</select>" +
+                    "<button type = 'button' class= 'button2'> Remove </button>" +
+                    "</p>";
+
+                create++;
+                $("#add").append(add);
+            }
+
+        });
+    </script>
+
+</html>
