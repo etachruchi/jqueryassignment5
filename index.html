@@ -14,38 +14,53 @@
             <div>
                 <p>
                     <input type="text">
-                    <input type="file" id="image" onchange="fileName(this)">
+                    <input type="file" id="image">
                     <select class="another" ;>
                        <option value="primary" selected>Primary</option>
-                       <option value=""style="margin-left=-47px;">Secondary</option>
+                       <option value="">Secondary</option>
                     </select>
                 </p>
             </div>
-            <div id=ADD></div>
+            <div id="add"></div>
         </form>
-        <button type="button" id="button" name="button" onclick="ADD()">Add </button>
+        <button type="button" id="button" name="button">Add</button>
+
     </div>
     </div>
     <script src="js/jquery-3.3.1.min.js"></script>
     <script>
-        var create = 0;
+        $(document).ready(function() {
 
-        function ADD() {
+            $("button").click(function() {
+                $("#add").append(function() {
+                    add();
+                });
+            });
+            $(document).on('click', '.button2', function() {
+                console.log("hello");
+                $(this).parent().remove();
+            });
 
-            var ADD = "<p id=" + create + ">" +
-                "<input type='text'>" +
-                "<input type='file' id='image' onchange='fileName(this)'>" +
-                "<select >" +
-                "<option value=''>Select</option>" +
-                "<option value='primary'>Primary</option>" +
-                "<option value='secondary' selected>Secondary</option>" +
-                "</select>" +
-                "<a href='javascript:void(0);' onclick='$(this).parent().remove();'>Remove</a>" +
-                "</p>";
+            var create = 1;
 
-            create++;
-            $("#ADD").append(ADD);
-        }
+            function add() {
+
+                var add = " <p id = '" + create + "' > " +
+                    "<input type='text'>" +
+                    "<input type='file' id='image'>" +
+                    "<select >" +
+                    "<option value=''>Select</option>" +
+                    "<option value='primary'>Primary</option>" +
+                    "<option value='secondary' selected>Secondary</option>" +
+                    "</select>" +
+                    "<button type = 'button' class= 'button2'> Remove </button>" +
+                    "</p>";
+
+                create++;
+                $("#add").append(add);
+            }
+
+        });
     </script>
 
 </html>
